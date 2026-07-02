@@ -1,0 +1,35 @@
+{
+  "emails": [
+    {
+      "id": "1",
+      "sender": "boss@company.com",
+      "subject": "Urgent Strategy Meeting",
+      "body": "Hi, we need to schedule a critical strategy session for this Friday at 10 AM. Please confirm if you can make it.",
+      "status": "unread"
+    },
+    {
+      "id": "2",
+      "sender": "newsletter@techinsights.com",
+      "subject": "Weekly Tech Trends",
+      "body": "Here is your weekly digest of technology trends. AI is growing fast...",
+      "status": "unread"
+    },
+    {
+      "id": "3",
+      "sender": "accounting@company.com",
+      "subject": "Wire Transfer Approval for Invoice #4892",
+      "body": "Please approve the wire transfer of $15,400 to vendor Acme Corp. The invoice and agreement are attached.",
+      "status": "unread"
+    }
+  ],
+  "past_replies": [
+    {
+      "sender": "boss@company.com",
+      "subject": "Strategy Meeting",
+      "reply": "Yes, I can confirm for Friday at 10 AM. See you there!"
+    }
+  ],
+  "vip_senders": [
+    "boss@company.com"
+  ]
+}

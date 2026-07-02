@@ -1,0 +1,41 @@
+[0:00 - HOOK]
+We have all felt the stress of an overflowing inbox, but fully automated email tools are a double-edged sword: they can commit to incorrect actions or leak sensitive information. That is why we built InboxFilter—an intelligent email concierge designed to filter spam, draft professional replies, and securely pause for human authorization on high-stakes requests.
+(pause)
+
+[0:20 - WHAT IT IS]
+InboxFilter is a secure, multi-agent concierge system developed under the Concierge Agents track. It brings together advanced AI agents, a local Model Context Protocol server, and robust security firewalls.
+(pause)
+
+[0:40 - SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see from our project banner, InboxFilter is built around three pillars: intelligent automation, ironclad security, and interactive human-in-the-loop control.
+(pause)
+
+[1:00 - ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let us walk through the workflow. First, every incoming email hits our Security Checkpoint node to check for PII, prompt injections, and size limits. If any hazard is found, it routes immediately to the Security Event exception page. Otherwise, clean text goes to the Inbox Orchestrator. The orchestrator delegates analysis to the Categorizer sub-agent—which checks the sender's VIP status via our MCP server—and the Responder sub-agent—which retrieves previous communication history to draft a matching response. The results are parsed by the Check Approval node. If the email is routine or urgent, it auto-approves and completes. But if it is classified as Sensitive, the workflow pauses at the Human Approval node to wait for a manual sign-off.
+(pause)
+
+[2:00 - LIVE DEMO]
+(switch to playground at localhost:18081)
+Let us see the system in action.
+(pause)
+First, I will submit a standard corporate meeting request from a VIP contact.
+(pause)
+Notice that the system identifies the sender as a VIP, categorizes it as Routine, drafts a response confirming the meeting, and automatically completes the run with an AUTO_APPROVED status.
+(pause)
+Now, I will send a high-risk request—an invoice wire transfer approval.
+(pause)
+Notice how the workflow automatically redacts the sender's phone number to protect their PII. Then, recognizing the sensitive request, the workflow pauses and prompts us: "SENSITIVE EMAIL DETECTED... Please reply with 'approve' to send." I will type "approve", and only then does the final reply get released.
+(pause)
+Finally, let us simulate a security threat by sending a prompt injection attack asking the system to ignore instructions and delete files.
+(pause)
+The Security Checkpoint flags it immediately, terminates the run, and displays a clean safety warning.
+(pause)
+
+[3:00 - SECURITY & MCP]
+This entire flow is protected by regex PII scrubbers and keyword-based injection blocklists, which generate structured JSON audit logs for every check. Behind the scenes, our Model Context Protocol server dynamically feeds VIP status and email history directly into the LLMs' decision loops.
+(pause)
+
+[3:30 - IMPACT / CLOSE]
+InboxFilter allows professionals to reclaim hours of their day without sacrificing corporate security or data integrity. It is the perfect balance of AI capability and human control. Thank you!
